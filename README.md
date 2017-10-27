@@ -43,11 +43,19 @@
 
 2. Players choose either a knight character or an archer character upon loading the game screen and spawn such a character under their control.
 
-3. Players can navigate the environment and attack enemy players.
+3. It's a top-down game where players take their character and kill each other.
 
-4. Each kill or death is recorded.
+4. Each kill or death is recorded. Player progression is also recorded.
 
 5. No win/loss condition.
+
+### When that's all done
+
+6. Have a "protect your territory" scenario; spawn in your base, defend your king within the base.
+
+7. Win by killing the enemy king within the enemy base.
+
+8. Death means respawning within your own base. Bases are spread far apart.
 
 ## Databases
 
@@ -66,11 +74,6 @@
 
 | id | hp | atk | def | spd | rng |
 |:--:|:--:|:---:|:---:|:---:|:---:|
-
-### PvE (?)
-
-| id | enemy | hp | atk | def | spd | rng |
-|:--:|:-----:|:--:|:---:|:---:|:---:|:---:|
 
 ### Teams
 
