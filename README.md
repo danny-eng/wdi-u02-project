@@ -53,9 +53,9 @@
 
 ### Player
 
-| id | username | password\_digest | nick | kills | deaths | knight | archer | 
-|:--:|:--------:|:----------------:|:----:|:-----:|:------:|:------:|:------:|
-|||||||knight(id)|archer(id)|
+| id | username | password\_digest | nick | kills | deaths | knight | archer | cur\_team |
+|:--:|:--------:|:----------------:|:----:|:-----:|:------:|:------:|:------:|:---------:|
+|||||||knight(id)|archer(id)|team(id)|
 
 ### Knight
 
@@ -67,7 +67,18 @@
 | id | hp | atk | def | spd | rng |
 |:--:|:--:|:---:|:---:|:---:|:---:|
 
-### PvE
+### PvE (?)
 
 | id | enemy | hp | atk | def | spd | rng |
 |:--:|:-----:|:--:|:---:|:---:|:---:|:---:|
+
+### Teams
+
+| id | team |
+|:--:|:----:|
+
+## Requirements
+
+- Set up server + databases.
+- Set up the environment.
+- Collisions for players, projectiles, environment object.
