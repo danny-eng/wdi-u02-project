@@ -61,9 +61,9 @@
 
 ### Player
 
-| id | username | password\_digest | nick | kills | deaths | k\_deaths | a\_deaths | knight | archer | cur\_team |
-|:--:|:--------:|:----------------:|:----:|:-----:|:------:|:---------:|:---------:|:------:|:------:|:---------:|
-|||||||||knight(id)|archer(id)|team(id)|
+| id | username | password\_digest | nick | kills | deaths | k\_deaths | a\_deaths | knight | archer | k\_kills | a\_kills |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|||||||||knight(id)|archer(id)|||
 
 ### Knight
 
@@ -77,8 +77,9 @@
 
 ### Teams
 
-| id | team |
+| player_id | team |
 |:--:|:----:|
+|player(id)||
 
 ## Requirements
 
