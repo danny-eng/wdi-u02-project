@@ -19,7 +19,7 @@
 ![Idle](https://i.imgur.com/oNUt8WS.jpg "Idle")
 
 ### Game
-![Game](https://i.imgur.com/SCA5hBO.jpg "Game")
+![Game](https://i.imgur.com/CFsngQN.jpg "Game")
 
 ## User Story
 
