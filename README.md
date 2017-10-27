@@ -48,3 +48,26 @@
 4. Each kill or death is recorded.
 
 5. No win/loss condition.
+
+## Databases
+
+### Player
+
+| id | username | password\_digest | nick | kills | deaths | knight | archer | 
+|:--:|:--------:|:----------------:|:----:|:-----:|:------:|:------:|:------:|
+|||||||knight(id)|archer(id)|
+
+### Knight
+
+| id | hp | atk | def | spd | rng |
+|:--:|:--:|:---:|:---:|:---:|:---:|
+
+### Archer
+
+| id | hp | atk | def | spd | rng |
+|:--:|:--:|:---:|:---:|:---:|:---:|
+
+### PvE
+
+| id | enemy | hp | atk | def | spd | rng |
+|:--:|:-----:|:--:|:---:|:---:|:---:|:---:|
