@@ -33,7 +33,7 @@
 
 4. On the login page, the client fills out the form and submits the form. They are directed to the idle page.
 
-5?. On the idle page, they can either chat with other clients that are also on the idle page. They can also set their avatar, view their profile, or log out.
+5. (?) On the idle page, they can either chat with other clients that are also on the idle page. They can also set their avatar, view their profile, or log out.
 
 6. When the client wishes to play, they can press the play button, which directs them to the game.
 
