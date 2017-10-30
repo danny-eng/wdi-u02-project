@@ -22,12 +22,6 @@ server.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });
 
-/*
-app.listen(port, () => {
-  console.log(`App is listening on port ${port}`);
-});
-*/
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -52,22 +46,23 @@ app.get('/', (req, res) => {
 const authRouter = require('./routes/auth-router');
 app.use('/auth', authRouter);
 
-const gameRouter = require('./routes/game-router');
-app.use('/game', gameRouter);
+app.get('/game', authHelpers.loginRequired, (req, res) => {
+  res.render('game');
+
+});
 
 app.use('*', (req, res) => {
   res.status(404).json("Not Found!");
-  /* res.render('index'); */
 });
 
 /* SOCKET.IO */
 
+let socketlog = [];
 
-io.on('connection', function(socket) {
-  console.log("new connection from " + socket.id);
-  socket.on('disconnect', function(event) {
-    console.log('user disconnected', socket.id);
+io.on('connection', socket => {
+  console.log(`New connection from ${socket.id}.`);
+
+  socket.on('disconnect', event => {
+    console.log(`User ${socket.id} has disconnected.`);
   });
 });
-
-
