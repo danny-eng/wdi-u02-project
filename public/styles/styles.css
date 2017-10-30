@@ -1,0 +1,108 @@
+
+
+/* FLEXBOX */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-menu {
+  display: flex;
+}
+
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CSS */
+
+body {
+  font-family: 'MedievalSharp', cursive;
+  background-color: rgba(0,0,0,1);
+  background-image: url('../assets/stonewall.jpg');
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255,255,255,1);
+}
+
+canvas {
+  height: 550px;
+  width: 800px;
+  border: 1px solid rgba(0,0,0,1);
+  background-color: rgba(150,150,150,1);
+}
+
+.fa-github {
+  color: white;
+}
+
+.white {
+  color: rgba(255,255,255,1);
+}
+
+.side-margin-m {
+  margin: 0 20px;
+}
+
+.side-margin-s {
+  margin: 0 10px;
+}
+
+.main-container {
+  height: 100vh;
+}
+
+.navigation-bar {
+  background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  height: 8vh;
+  width: 100vw;
+}
+
+.footer-bar {
+  background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+  height: 6vh;
+  width: 100vw;
+}
+
+.logo {
+  font-size: 25px;
+}
+
+.label {
+  margin: 5px 0;
+}
+
+.entry {
+  margin: 0 0 15px 0;
+}
+
+.login-form {
+  padding: 25px;
+  background-color: rgba(255,255,255,1);
+  border: 1px solid rgba(0,0,0,1);
+  border-radius: 5px;
+}
+
+.splash {
+  font-size: 60px;
+}
+
+

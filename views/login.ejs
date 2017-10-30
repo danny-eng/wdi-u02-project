@@ -1,0 +1,40 @@
+<% include ./partials/boilerplate %>
+<% include ./partials/navigation %>
+
+<div class="main-content">
+
+  <div class="login-form">
+
+    <form action="/auth/login" method="POST">
+
+      <div class="entry">
+
+        <div class="label"><h1>Username</h1></div>
+
+        <input name="username" type="text" placeholder="Username" required />
+
+      </div>
+
+      <div class="entry">
+
+        <div class="label"><h1>Password</h1></div>
+
+        <input name="password" type="password" placeholder="Password" required />
+
+      </div>
+
+      <div class="button-set">
+
+        <input type="submit" value="Login" />
+
+        <input type="reset" value="Cancel" onClick="window.location='/'" />
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<% include ./partials/end %>

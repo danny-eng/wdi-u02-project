@@ -2,21 +2,6 @@ const db = require('../db/config');
 
 const Player = {};
 
-Player.findAll = () => {
-  return db.any(`
-    SELECT *
-    FROM player
-  `);
-}
-
-Player.findById = (id) => {
-  return db.one(`
-    SELECT *
-    FROM player
-    WHERE id = $1
-  `, [id]);
-}
-
 Player.create = (player) => {
   return db.one(`
     INSERT INTO player
@@ -36,6 +21,14 @@ Player.create = (player) => {
     player.k_deaths,
     player.a_deaths
   ]);
+}
+
+Player.findByUsername = (username) => {
+  return db.one(`
+    SELECT *
+    FROM player
+    WHERE username = $1
+  `, [username]);
 }
 
 Player.update = (player, id) => {
