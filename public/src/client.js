@@ -61,8 +61,11 @@ function refreshDraws(players){
   ctx.fillStyle = 'green';
 
   let localPlayers = players;
+  let len = Object.keys(localPlayers).length
 
   for (let key in localPlayers){
+    ctx.font = "30px Arial";
+    ctx.fillText(`${len}`,10,50);
   }
 
 }
