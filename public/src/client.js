@@ -9,18 +9,26 @@
 */
 
 const socket = io();
-let data = {};
+let id;
+
+let game;
 
 window.onload = () => {
   socket.emit('connection');
 
-  socket.on('data', data => {
-    console.log(data);
+  socket.on('id', x => {
+    id = x;
   });
 
   window.addEventListener("keydown", moveObject);
   window.addEventListener("mousemove", mouseTracker);
   window.addEventListener("click", clickFire);
+
+  game = document.getElementById("game-window");
+
+  socket.on('state', players => {
+    refreshDraws(players);
+  });
 }
 
 // mouse
@@ -47,4 +55,14 @@ function moveObject(event){
   socket.emit('keypress', event.code);
 }
 
+function refreshDraws(players){
+  let ctx = game.getContext('2d');
+  ctx.clearRect(0, 0, 800, 600);
+  ctx.fillStyle = 'green';
 
+  let localPlayers = players;
+
+  for (let key in localPlayers){
+  }
+
+}

@@ -50,6 +50,8 @@ let userdat = {}
 app.get('/game', authHelpers.loginRequired, (req, res) => {
   res.render('game');
   userdat = req.user;
+  userdat["x"] = 100;
+  userdat["y"] = 100;
 });
 
 app.use('*', (req, res) => {
@@ -58,26 +60,38 @@ app.use('*', (req, res) => {
 
 /* game stuff */
 
+let players = {};
+
 io.on('connection', socket => {
   console.log(`New connection from ${socket.id}.`);
-  io.emit('data', userdat);
+  io.emit('id', socket.id);
+  players[socket.id] = userdat;
+
+  setInterval(function(){
+    io.sockets.emit('state', players)
+  }, 1000/60);
 
   socket.on('disconnect', event => {
     console.log(`User ${socket.id} has disconnected.`);
+    delete players[socket.id];
   });
 
   socket.on('keypress', event => {
     if (event === "KeyW"){
-      console.log("up");
+      players[socket.id].y += 20;
+      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyA"){
-      console.log("left");
+      players[socket.id].x -= 20;
+      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyS"){
-      console.log("down");
+      players[socket.id].y += 20;
+      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyD"){
-      console.log("right");
+      players[socket.id].x += 20;
+      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
   });
 
@@ -89,7 +103,5 @@ io.on('connection', socket => {
 
 // the player can move, attack, and die.
 // the player has range, health, damage, armor, etc.
-
-
 
 
