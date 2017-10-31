@@ -64,6 +64,7 @@ let players = {};
 
 io.on('connection', socket => {
   console.log(`New connection from ${socket.id}.`);
+  io.emit('data', userdat);
   io.emit('id', socket.id);
   players[socket.id] = userdat;
 
@@ -78,26 +79,26 @@ io.on('connection', socket => {
 
   socket.on('keypress', event => {
     if (event === "KeyW"){
-      players[socket.id].y += 20;
-      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      players[socket.id].y -= 5;
+      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyA"){
-      players[socket.id].x -= 20;
-      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      players[socket.id].x -= 5;
+      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyS"){
-      players[socket.id].y += 20;
-      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      players[socket.id].y += 5;
+      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
     if (event === "KeyD"){
-      players[socket.id].x += 20;
-      console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      players[socket.id].x += 5;
+      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
     }
   });
 
-  socket.on('fire', pos => {
-    console.log(pos);
-  });
+  // socket.on('fire', pos => {
+  //   console.log(pos);
+  // });
 
 });
 

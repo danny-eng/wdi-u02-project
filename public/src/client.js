@@ -64,8 +64,12 @@ function refreshDraws(players){
   let len = Object.keys(localPlayers).length
 
   for (let key in localPlayers){
-    ctx.font = "30px Arial";
-    ctx.fillText(`${len}`,10,50);
+    // ctx.font = "5px Times New Roman";
+    // ctx.fillStyle = "black";
+    // ctx.fillText(`${len}`, 10, 10);
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 10, 10);
   }
 
 }
