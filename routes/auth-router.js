@@ -1,5 +1,6 @@
 const express = require('express');
 const authRouter = express.Router();
+const gameRouter = express.Router();
 const passport = require('../services/auth/local');
 const authHelpers = require('../services/auth/auth-helpers');
 const playersController = require('../controllers/players-controller');
@@ -25,5 +26,6 @@ authRouter.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/auth/login');
 });
+
 
 module.exports = authRouter;

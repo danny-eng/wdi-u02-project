@@ -27,6 +27,8 @@ Player.findByUsername = (username) => {
   return db.one(`
     SELECT *
     FROM player
+    JOIN knight ON player.knight = knight.id
+    JOIN archer ON player.archer = archer.id
     WHERE username = $1
   `, [username]);
 }

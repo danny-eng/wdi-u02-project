@@ -46,23 +46,38 @@ app.get('/', (req, res) => {
 const authRouter = require('./routes/auth-router');
 app.use('/auth', authRouter);
 
+let userdat = {}
 app.get('/game', authHelpers.loginRequired, (req, res) => {
   res.render('game');
-
+  userdat = req.user;
 });
 
 app.use('*', (req, res) => {
   res.status(404).json("Not Found!");
 });
 
-/* SOCKET.IO */
-
-let socketlog = [];
+/* game stuff */
 
 io.on('connection', socket => {
   console.log(`New connection from ${socket.id}.`);
+  io.emit('data', userdat);
 
   socket.on('disconnect', event => {
     console.log(`User ${socket.id} has disconnected.`);
+  });
+
+  socket.on('keypress', event => {
+    if (event === "KeyW"){
+      console.log("up");
+    }
+    if (event === "KeyA"){
+      console.log("left");
+    }
+    if (event === "KeyS"){
+      console.log("down");
+    }
+    if (event === "KeyD"){
+      console.log("right");
+    }
   });
 });

@@ -1,13 +1,2 @@
-DROP TABLE IF EXISTS knight;
-
-CREATE TABLE IF NOT EXISTS knight (
-  id SERIAL PRIMARY KEY,
-  hp INTEGER,
-  atk INTEGER,
-  def INTEGER,
-  spd INTEGER,
-  rng INTEGER
-);
-
-INSERT INTO knight (hp, atk, def, spd, rng) VALUES
+INSERT INTO knight (k_hp, k_atk, k_def, k_spd, k_rng) VALUES
 (1, 1, 1, 1, 1);

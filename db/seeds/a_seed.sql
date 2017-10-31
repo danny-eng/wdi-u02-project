@@ -1,13 +1,2 @@
-DROP TABLE IF EXISTS archer;
-
-CREATE TABLE IF NOT EXISTS archer (
-  id SERIAL PRIMARY KEY,
-  hp INTEGER,
-  atk INTEGER,
-  def INTEGER,
-  spd INTEGER,
-  rng INTEGER
-);
-
-INSERT INTO archer (hp, atk, def, spd, rng) VALUES
+INSERT INTO archer (a_hp, a_atk, a_def, a_spd, a_rng) VALUES
 (1, 1, 1, 1, 1);
