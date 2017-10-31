@@ -80,4 +80,16 @@ io.on('connection', socket => {
       console.log("right");
     }
   });
+
+  socket.on('fire', pos => {
+    console.log(pos);
+  });
+
 });
+
+// the player can move, attack, and die.
+// the player has range, health, damage, armor, etc.
+
+
+
+
