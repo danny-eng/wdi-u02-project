@@ -84,30 +84,25 @@ io.on('connection', socket => {
 
   socket.on('keypress', event => {
     if (event === "KeyW"){
-      players[socket.id].y -= 5;
-      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      if (players[socket.id].y >= 5){
+        players[socket.id].y -= 5;
+      }
     }
     if (event === "KeyA"){
-      players[socket.id].x -= 5;
-      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      if (players[socket.id].x >= 5){
+        players[socket.id].x -= 5;
+      }
     }
     if (event === "KeyS"){
-      players[socket.id].y += 5;
-      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      if (players[socket.id].y < 990){
+        players[socket.id].y += 5;
+      }
     }
     if (event === "KeyD"){
-      players[socket.id].x += 5;
-      // console.log(`${players[socket.id].x}, ${players[socket.id].y}`);
+      if (players[socket.id].x < 990){
+        players[socket.id].x += 5;
+      }
     }
   });
 
-  // socket.on('fire', pos => {
-  //   console.log(pos);
-  // });
-
 });
-
-// the player can move, attack, and die.
-// the player has range, health, damage, armor, etc.
-
-

@@ -1,12 +1,4 @@
-/*
 
-  Connect to server.
-
-  Spawn as a knight or as an archer.
-
-  Can attack, move.
-
-*/
 
 const socket = io();
 let id;
@@ -55,23 +47,42 @@ function moveObject(event){
   socket.emit('keypress', event.code);
 }
 
+let room = {
+  height: 1000,
+  width: 1000
+}
+
 function refreshDraws(players){
   let ctx = game.getContext('2d');
-  ctx.clearRect(0, 0, 800, 600);
-  ctx.fillStyle = 'green';
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.clearRect(0, 0, 800, 550);
 
   let localPlayers = players;
-  let len = Object.keys(localPlayers).length
-  ctx.font = "12px Times New Roman";
-  ctx.fillStyle = "black";
-  ctx.fillText(`${len} players logged on.`, 10, 20);
+  let len = Object.keys(localPlayers).length;
+
+  let camX = 0;
+  let camY = 0;
+  if ((localPlayers[id].x >= (game.width/2)) && localPlayers[id].x < (room.width - (game.width/2))) {
+    camX = localPlayers[id].x - game.width/2;
+  } else if (localPlayers[id].x >= (room.width - (game.width/2))){
+    camX = room.width - game.width;
+  }
+  if ((localPlayers[id].y >= (game.height/2)) && localPlayers[id].y < (room.height - (game.height/2))){
+    camY = localPlayers[id].y - game.height/2;
+  } else if (localPlayers[id].y >= (room.height - (game.height/2))){
+    camY = room.height - game.height;
+  }
+  ctx.translate(-camX, -camY);
 
   for (let key in localPlayers){
-
     ctx.fillStyle = "black";
-    ctx.fillRect(localPlayers[key].x-1, localPlayers[key].y-1, 12, 12);
-    ctx.fillStyle = "red";
     ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 10, 10);
+    ctx.fillStyle = "red";
+    ctx.fillRect(localPlayers[key].x + 1, localPlayers[key].y + 1, 8, 8);
   }
 
+  console.log(`${localPlayers[id].x}, ${camX}`);
+  console.log(`${localPlayers[id].y}, ${camY}`);
+
 }
+
