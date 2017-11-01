@@ -8,8 +8,9 @@ let game;
 window.onload = () => {
   socket.emit('connection');
 
-  socket.on('id', x => {
+  socket.once('id', x => {
     id = x;
+    console.log(id);
   });
 
   window.addEventListener("keydown", moveObject);
@@ -21,6 +22,7 @@ window.onload = () => {
   socket.on('state', players => {
     refreshDraws(players);
   });
+
 }
 
 // mouse
@@ -80,9 +82,6 @@ function refreshDraws(players){
     ctx.fillStyle = "red";
     ctx.fillRect(localPlayers[key].x + 1, localPlayers[key].y + 1, 8, 8);
   }
-
-  console.log(`${localPlayers[id].x}, ${camX}`);
-  console.log(`${localPlayers[id].y}, ${camY}`);
 
 }
 
