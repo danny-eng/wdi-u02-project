@@ -62,11 +62,11 @@ function refreshDraws(players){
 
   let localPlayers = players;
   let len = Object.keys(localPlayers).length
+  ctx.font = "12px Times New Roman";
+  ctx.fillStyle = "black";
+  ctx.fillText(`${len} players logged on.`, 10, 20);
 
   for (let key in localPlayers){
-    ctx.font = "5px Times New Roman";
-    ctx.fillStyle = "black";
-    ctx.fillText(`${len}`, 10, 10);
 
     ctx.fillStyle = "black";
     ctx.fillRect(localPlayers[key].x-1, localPlayers[key].y-1, 12, 12);
