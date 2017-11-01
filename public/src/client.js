@@ -68,6 +68,8 @@ function refreshDraws(players){
     // ctx.fillStyle = "black";
     // ctx.fillText(`${len}`, 10, 10);
 
+    ctx.fillStyle = "black";
+    ctx.fillRect(localPlayers[key].x-1, localPlayers[key].y-1, 12, 12);
     ctx.fillStyle = "red";
     ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 10, 10);
   }
