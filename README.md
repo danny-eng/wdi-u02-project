@@ -36,39 +36,55 @@ The current version features functional player registration, player login, and m
 
 ## User Story
 
-### Initial use
+<details>
 
-1. The client enters the URL for the app and reaches the homepage.
+<b>Initial use</b>
 
-2. On the homepage, the client can either register for a new account or log in with an existing account.
+<ul>
 
-3. On the register page, the client fills out and submits the form. They are directed to the idle page.
+<li>The client enters the URL for the app and reaches the homepage.</li>
 
-4. On the login page, the client fills out the form and submits the form. They are directed to the idle page.
+<li>On the homepage, the client can either register for a new account or log in with an existing account.</li>
 
-5. (?) On the idle page, they can either chat with other clients that are also on the idle page. They can also set their avatar, view their profile, or log out.
+<li>On the register page, the client fills out and submits the form. They are directed to the idle page.</li>
 
-6. When the client wishes to play, they can press the play button, which directs them to the game.
+<li>On the login page, the client fills out the form and submits the form. They are directed to the idle page.</li>
 
-### Game
+<li>(?) On the idle page, they can either chat with other clients that are also on the idle page. They can also set their avatar, view their profile, or log out.</li>
 
-1. Protect the King is a game that pits a team of players against one another.
+<li>When the client wishes to play, they can press the play button, which directs them to the game.</li>
 
-2. Players choose either a knight character or an archer character upon loading the game screen and spawn such a character under their control.
+</ul>
 
-3. It's a top-down game where players take their character and kill each other.
+<b>Game</b>
 
-4. Each kill or death is recorded. Player progression is also recorded.
+<ul>
 
-5. No win/loss condition.
+<li>Protect the King is a game that pits a team of players against one another.</li>
 
-### When that's all done
+<li>Players choose either a knight character or an archer character upon loading the game screen and spawn such a character under their control.</li>
 
-6. Have a "protect your territory" scenario; spawn in your base, defend your king within the base.
+<li>It's a top-down game where players take their character and kill each other.</li>
 
-7. Win by killing the enemy king within the enemy base.
+<li>Each kill or death is recorded. Player progression is also recorded.</li>
 
-8. Death means respawning within your own base. Bases are spread far apart.
+<li>No win/loss condition.</li>
+
+</ul>
+
+<b>When that's all done</b>
+
+<ul>
+
+<li>Have a "protect your territory" scenario; spawn in your base, defend your king within the base.</li>
+
+<li>Win by killing the enemy king within the enemy base.</li>
+
+<li>Death means respawning within your own base. Bases are spread far apart.</li>
+
+</ul>
+
+</details>
 
 ## Databases
 
@@ -99,3 +115,52 @@ The current version features functional player registration, player login, and m
 - Set up server + databases.
 - Set up the environment.
 - Collisions for players, projectiles, environment object.
+
+## Technologies
+
+- `Express.js` package for setting up the server.
+- `auth` and its modules for managing user accounts.
+- `socket.io` to manage the multiplayer experience.
+
+## Snippet
+
+```
+
+    let camX = 0;
+    let camY = 0;
+
+    if ((localPlayers[id].x >= (game.width/2)) && localPlayers[id].x < (room.width - (game.width/2))) {
+        camX = localPlayers[id].x - game.width/2;
+    } else if (localPlayers[id].x >= (room.width - (game.width/2))){
+        camX = room.width - game.width;
+    }
+    if ((localPlayers[id].y >= (game.height/2)) && localPlayers[id].y < (room.height - (game.height/2))){
+        camY = localPlayers[id].y - game.height/2;
+    } else if (localPlayers[id].y >= (room.height - (game.height/2))){
+        camY = room.height - game.height;
+    }
+  
+    ctx.translate(-camX, -camY);
+
+```
+
+## Future features
+
+- Collisions.
+- Projectiles, damage.
+- Death and kill tracking.
+- Respawning.
+- Leveling.
+- The King.
+
+## Instructions
+
+1. Either download the .zip file from [this repository](https://github.com/danny-eng/wdi-u02-project) or fork/clone it.
+
+2. Open Terminal and navigate to the new directory.
+
+3. Run `npm install`.
+
+4. Run `npm run dev`.
+
+5. Open a browser and run `localhost:3000`.
