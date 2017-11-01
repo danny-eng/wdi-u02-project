@@ -30,4 +30,9 @@ authRouter.get('/logout', (req, res) => {
 authRouter.get('/account', authHelpers.loginRequired, playersController.index);
 authRouter.put('/account', authHelpers.loginRequired, playersController.update);
 
+authRouter.delete('/account', authHelpers.loginRequired, playersController.delete, (req, res) => {
+  req.logout();
+  res.redirect('/auth/login');
+});
+
 module.exports = authRouter;

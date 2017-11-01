@@ -45,11 +45,11 @@ Player.update = (player, id) => {
   ]);
 }
 
-Player.delete = (id) => {
+Player.delete = (username) => {
   return db.none(`
     DELETE FROM player
-    WHERE id = $1
-  `, [id]);
+    WHERE username = $1
+  `, [username]);
 }
 
 module.exports = Player;

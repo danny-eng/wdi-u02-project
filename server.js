@@ -43,6 +43,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/index', (req, res) => {
+  res.render('index');
+})
+
 const authRouter = require('./routes/auth-router');
 app.use('/auth', authRouter);
 
@@ -57,6 +61,7 @@ app.get('/game', authHelpers.loginRequired, (req, res) => {
 app.use('*', (req, res) => {
   res.status(404).json("Not Found!");
 });
+
 
 /* game stuff */
 

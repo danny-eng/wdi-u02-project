@@ -53,13 +53,14 @@ playersController.update = (req, res) => {
   });
 }
 
-playersController.delete = (req, res) => {
-  Player.delete(req.user.id)
+playersController.delete = (req, res, next) => {
+  Player.delete(req.user.username)
   .then(() => {
-    res.redirect('/');
+    next();
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
+    next();
   });
 }
 
