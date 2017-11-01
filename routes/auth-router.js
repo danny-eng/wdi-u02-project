@@ -27,5 +27,7 @@ authRouter.get('/logout', (req, res) => {
   res.redirect('/auth/login');
 });
 
+authRouter.get('/account', authHelpers.loginRequired, playersController.index);
+authRouter.put('/account', authHelpers.loginRequired, playersController.update);
 
 module.exports = authRouter;

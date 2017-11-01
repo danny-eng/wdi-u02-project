@@ -30,23 +30,23 @@ playersController.create = (req, res) => {
 }
 
 playersController.index = (req, res) => {
-  res.render('/game', { user: req.user });
+  Player.findByUsername(req.user.username)
+  .then(data => {
+    res.status(200).render('account', {
+      data
+    })
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 };
 
 playersController.update = (req, res) => {
   Player.update({
-    username: req.body.username,
-    password_digest: hash,
-    nick: req.body.nick,
-    kills: 0,
-    deaths: 0,
-    knight: 1,
-    archer: 1,
-    k_kills: 0,
-    a_kills: 0,
-    k_deaths: 0,
-    a_deaths: 0
-  }, req.user.id)
+    nick: req.body.nick
+  }, req.user.id).then(data => {
+    res.redirect('/game');
+  })
   .catch(err => {
     console.log(err);
     res.status(500).json(err);

@@ -1,0 +1,40 @@
+<% include ./partials/boilerplate %>
+<% include ./partials/navigation-account %>
+
+<div class="main-content">
+
+  <div class="form">
+
+    <form action="/auth/account?_method=PUT" method="POST">
+
+      <div class="entry">
+
+        <div class="label"><h1>Nick</h1></div>
+
+        <input name="nick" type="nick" placeholder="Nick" required />
+
+      </div>
+
+      <div class="button-set">
+
+        <input type="submit" value="Update" />
+
+      </div>
+
+    </form>
+
+    <form action="/auth/account?_method=DELETE" method="POST">
+
+      <div class="button-set">
+
+        <input class="label" type="submit" value="Delete Account" />
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<% include ./partials/end %>

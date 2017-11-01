@@ -36,31 +36,11 @@ Player.findByUsername = (username) => {
 Player.update = (player, id) => {
   return db.one(`
     UPDATE player SET
-    username = $1,
-    password_digest = $2,
-    nick = $3,
-    kills = $4,
-    deaths = $5,
-    knight = $6,
-    archer = $7,
-    k_kills = $8,
-    a_kills = $9,
-    k_deaths = $10,
-    a_deaths = $11
-    WHERE id = $12
+    nick = $1
+    WHERE id = $2
     RETURNING *
   `, [
-    player.username,
-    player.password_digest,
     player.nick,
-    player.kills,
-    player.deaths,
-    player.knight,
-    player.archer,
-    player.k_kills,
-    player.a_kills,
-    player.k_deaths,
-    player.a_deaths,
     id
   ]);
 }
