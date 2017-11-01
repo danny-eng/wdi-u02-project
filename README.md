@@ -11,7 +11,7 @@ The current version features functional player registration, player login, and m
 <details> 
 <summary>Homepage</summary>
 <br>
-[Homepage](https://i.imgur.com/qTqaHHu.jpg "Homepage")
+<img src="https://i.imgur.com/qTqaHHu.jpg"></img>
 </details>
 
 <details>
