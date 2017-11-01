@@ -10,32 +10,28 @@ The current version features functional player registration, player login, and m
 
 <details> 
 <summary>Homepage</summary>
-<br>
-<img src="https://i.imgur.com/qTqaHHu.jpg"></img>
+<img src="https://i.imgur.com/qTqaHHu.jpg" />
 </details>
 
 <details>
 <summary>Register</summary>
-<br>
-[Register](https://i.imgur.com/B52WX9N.jpg "Register")
+<img src="https://i.imgur.com/B52WX9N.jpg" />
 </details>
 
 <details>
 <summary>Login</summary>
-<br>
-[Login](https://i.imgur.com/cKgT85i.jpg "Login screen")
+<img src="https://i.imgur.com/cKgT85i.jpg" />
 </details>
 
 <details>
 <summary>Idle</summary>
 <br>
-[Idle](https://i.imgur.com/oNUt8WS.jpg "Idle")
+<img src="https://i.imgur.com/oNUt8WS.jpg" />
 </details>
 
 <details>
 <summary>Game</summary>
-<br>
-[Game](https://i.imgur.com/CFsngQN.jpg "Game")
+<img src="https://i.imgur.com/CFsngQN.jpg" />
 </details>
 
 ## User Story
