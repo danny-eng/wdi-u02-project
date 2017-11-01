@@ -1,25 +1,42 @@
 # Protect the King!
 
+### Description
+
+_Protect the King_ is an ambitious project that aims to create a fun, competitive game environment using web development technology.
+
+The current version features functional player registration, player login, and multiplayer hosting.
+
 ## Wireframes
 
-### Homepage
-
+<details> 
+<summary>Homepage</summary>
+<br>
 ![Homepage](https://i.imgur.com/qTqaHHu.jpg "Homepage")
+<details>
 
-### Register
-
+<details>
+<summary>Register</summary>
+<br>
 ![Register](https://i.imgur.com/B52WX9N.jpg "Register")
+<details>
 
-### Login
-
+<details>
+<summary>Login</summary>
+<br>
 ![Login](https://i.imgur.com/cKgT85i.jpg "Login screen")
+<details>
 
-### Idle
-
+<details>
+<summary>Idle</summary>
+<br>
 ![Idle](https://i.imgur.com/oNUt8WS.jpg "Idle")
+<details>
 
-### Game
+<details>
+<summary>Game</summary>
+<br>
 ![Game](https://i.imgur.com/CFsngQN.jpg "Game")
+<details>
 
 ## User Story
 
