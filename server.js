@@ -54,18 +54,18 @@ let userdat = {}
 app.get('/game', authHelpers.loginRequired, (req, res) => {
   res.render('game');
   userdat = req.user;
-  userdat["x"] = 100;
-  userdat["y"] = 100;
+  userdat["x"] = Math.round(Math.random() * 985);
+  userdat["y"] = Math.round(Math.random() * 985);
 });
 
 app.use('*', (req, res) => {
   res.status(404).json("Not Found!");
 });
 
-
 /* game stuff */
 
 let players = {};
+let playersList = [];
 
 io.on('connection', socket => {
   console.log(`New connection from ${socket.id}.`);
@@ -74,7 +74,8 @@ io.on('connection', socket => {
   players[socket.id] = userdat;
 
   setInterval(function(){
-    io.sockets.emit('state', players)
+    io.sockets.emit('state', players);
+    playersList = Object.keys(players);
   }, 1000/60);
 
   socket.on('disconnect', event => {
@@ -85,24 +86,40 @@ io.on('connection', socket => {
   socket.on('keypress', event => {
     if (event === "KeyW"){
       if (players[socket.id].y >= 5){
-        players[socket.id].y -= 5;
+        move.up(players[socket.id]);
       }
     }
     if (event === "KeyA"){
       if (players[socket.id].x >= 5){
-        players[socket.id].x -= 5;
+        move.left(players[socket.id]);
       }
     }
     if (event === "KeyS"){
-      if (players[socket.id].y < 990){
-        players[socket.id].y += 5;
+      if (players[socket.id].y < 985){
+        move.down(players[socket.id]);
       }
     }
     if (event === "KeyD"){
-      if (players[socket.id].x < 990){
-        players[socket.id].x += 5;
+      if (players[socket.id].x < 985){
+        move.right(players[socket.id]);
       }
     }
   });
+
+
+  let move = {
+    up: (p) => {
+      p.y -= 5;
+    },
+    left: (p) => {
+      p.x -= 5;
+    },
+    down: (p) => {
+      p.y += 5;
+    },
+    right: (p) => {
+      p.x += 5;
+    }
+  }
 
 });
