@@ -4,6 +4,7 @@ const socket = io();
 let id;
 
 let game;
+let count;
 
 window.onload = () => {
   socket.emit('connection');
@@ -18,6 +19,7 @@ window.onload = () => {
   window.addEventListener("click", clickFire);
 
   game = document.getElementById("game-window");
+  count = document.getElementById("counter");
 
   socket.on('state', players => {
     refreshDraws(players);
@@ -60,7 +62,7 @@ function refreshDraws(players){
   ctx.clearRect(0, 0, 800, 550);
 
   let localPlayers = players;
-  let len = Object.keys(localPlayers).length;
+  let playersOnline = Object.keys(localPlayers).length;
 
   let camX = 0;
   let camY = 0;
@@ -78,10 +80,19 @@ function refreshDraws(players){
 
   for (let key in localPlayers){
     ctx.fillStyle = "black";
-    ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 10, 10);
+    ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 15, 15);
     ctx.fillStyle = "red";
-    ctx.fillRect(localPlayers[key].x + 1, localPlayers[key].y + 1, 8, 8);
+    ctx.fillRect(localPlayers[key].x + 1, localPlayers[key].y + 1, 13, 13);
+    ctx.fillStyle = "black";
+    ctx.font = "12px Times New Roman";
+    ctx.fillText(`${localPlayers[key].nick}`, localPlayers[key].x - 3, localPlayers[key].y - 3);
   }
 
+  if (playersOnline === 0){
+    count.innerHTML = `<p>There are no players online.</p>`;
+  } else if (playersOnline === 1){
+    count.innerHTML = `<p>There is ${playersOnline} player online.</p>`;
+  } else {
+    count.innerHTML = `<p>There are ${playersOnline} players online.</p>`;
+  }
 }
-
