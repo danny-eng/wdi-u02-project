@@ -82,6 +82,9 @@ function refreshDraws(players){
     ctx.fillRect(localPlayers[key].x, localPlayers[key].y, 15, 15);
     ctx.fillStyle = "red";
     ctx.fillRect(localPlayers[key].x + 1, localPlayers[key].y + 1, 13, 13);
+  }
+
+  for (let key in localPlayers){
     ctx.fillStyle = "black";
     ctx.font = "12px Times New Roman";
     ctx.fillText(`${localPlayers[key].nick}`, localPlayers[key].x - 3, localPlayers[key].y - 3);
