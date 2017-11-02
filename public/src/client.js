@@ -11,7 +11,6 @@ window.onload = () => {
 
   socket.once('id', x => {
     id = x;
-    console.log(id);
   });
 
   window.addEventListener("keydown", moveObject);

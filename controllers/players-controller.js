@@ -42,9 +42,8 @@ playersController.index = (req, res) => {
 };
 
 playersController.update = (req, res) => {
-  Player.update({
-    nick: req.body.nick
-  }, req.user.id).then(data => {
+  Player.update(req.body.nick, req.user.username)
+  .then(data => {
     res.redirect('/game');
   })
   .catch(err => {

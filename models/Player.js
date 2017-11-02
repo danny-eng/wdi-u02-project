@@ -33,15 +33,15 @@ Player.findByUsername = (username) => {
   `, [username]);
 }
 
-Player.update = (player, id) => {
+Player.update = (nick, username) => {
   return db.one(`
     UPDATE player SET
     nick = $1
-    WHERE id = $2
+    WHERE username = $2
     RETURNING *
   `, [
-    player.nick,
-    id
+    nick,
+    username
   ]);
 }
 
